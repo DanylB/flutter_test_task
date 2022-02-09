@@ -16,14 +16,25 @@ class ColorGenerator extends ChangeNotifier {
 
   /// generate random color
   void colorGenerator() {
-    _red = math.Random()
-        .nextInt(maxColorIntensity + 1); // random number from 0 to 255
+    /// random number from 0 to 255
+    _red = math.Random().nextInt(maxColorIntensity + 1);
+
+    /// random number from 0 to 255
     _green = math.Random().nextInt(maxColorIntensity + 1);
+
+    /// random number from 0 to 255
     _blue = math.Random().nextInt(maxColorIntensity + 1);
 
+    /// get RGBA color by random generated numbers
     randomColor = Color.fromRGBO(_red, _green, _blue, _opacity);
-    dev.log('Color($_red, $_green, $_blue)');
+
+    printGeneratedColor();
 
     notifyListeners();
+  }
+
+  /// print result color to console
+  void printGeneratedColor() {
+    dev.log('Color($_red, $_green, $_blue)');
   }
 }

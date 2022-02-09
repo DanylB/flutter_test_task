@@ -4,30 +4,25 @@ import 'package:flutter_test_task/constants.dart';
 import 'package:provider/provider.dart';
 
 /// main application screen
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   /// class constructor
   const HomePage({Key? key}) : super(key: key);
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  void setNewBackgroundColor(ColorGenerator provider) {
-    setState(() {
-      provider.colorGenerator();
-    });
-  }
+  /// update background color
+  void setNewBackgroundColor(ColorGenerator colorGeneratorProvider) =>
+      colorGeneratorProvider.colorGenerator();
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ColorGenerator>(context, listen: false);
+    /// provider ColorGenerator Class
+    final colorGeneratorProvider =
+        Provider.of<ColorGenerator>(context, listen: true);
 
     return SafeArea(
       child: GestureDetector(
-        onTap: () => setNewBackgroundColor(provider),
+        onTap: () => setNewBackgroundColor(colorGeneratorProvider),
         child: Scaffold(
-          backgroundColor: provider.randomColor,
+          backgroundColor: colorGeneratorProvider.randomColor,
           appBar: AppBar(
             title: const Text(kTitleText),
             backgroundColor: Colors.black,
