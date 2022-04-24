@@ -6,6 +6,9 @@ const String kTitleText = 'Random Color Generator';
 /// Center text
 const String kBodyCenterText = 'Hey there';
 
+/// SnackBar text
+const String kShackBarText = 'Copied';
+
 /// Center text Style - "Hey there"
 const TextStyle kBodyCenterTextStyle = TextStyle(
   fontSize: 18,

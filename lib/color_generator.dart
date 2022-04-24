@@ -37,4 +37,14 @@ class ColorGenerator extends ChangeNotifier {
   void printGeneratedColor() {
     dev.log('Color($_red, $_green, $_blue)');
   }
+
+  /// return color on HEX
+  String getHexNameColor() {
+    const int hexType = 16;
+    final String _redToHex = _red.toRadixString(hexType);
+    final String _greenToHex = _green.toRadixString(hexType);
+    final String _blueToHex = _blue.toRadixString(hexType);
+
+    return '#$_redToHex$_greenToHex$_blueToHex';
+  }
 }
